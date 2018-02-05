@@ -24,11 +24,15 @@ $(document).ready(function(){
   })
 
 var keys = {};
+var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 
 $(document).keydown(function(event){
+  if (jQuery.inArray(event.which,acceptedKeys)!=-1) {
+    //Takes the accepted keys array, and returns the index of the first arguement, or -1 if it is not found
     keys[event.which] = true; //keys[event.which] adds the key pressed to array keys
     printKeys();
     showImg();
+  }
 });
 
 $(document).keyup(function(event){
