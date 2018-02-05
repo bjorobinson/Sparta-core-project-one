@@ -1,11 +1,29 @@
+ul {
+  list-style-type:none;
+  padding-left: 0px;
+}
+
+li{
+  display: inline-block;
+}
+
 .note{
-  width:30px;
-  height:30px;
+  width:100px;
+  height:100px;
   border-radius: 50%;
+  margin-right:50px;
+}
+
+.noteLine{
+  border: 1px solid black;
 }
 
 .pushed{
   opacity: 0.5;
+}
+
+#newline{
+  border-bottom: 1px solid black;
 }
 
 #red{
@@ -30,9 +48,12 @@
 
 #zone{
   background: pink;
-  width: 80px;
-  height: 100px;
-  margin-left: 500px;
+  height: 50px;
+}
+
+#notefall{
+  background: grey;
+  height: 350px;
 }
 
 #demomove{

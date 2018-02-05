@@ -1,21 +1,20 @@
 $(document).ready(function(){
     console.log("Working");
-    moveNote();
+    // moveNote();
 
-    //interval
     //interval is typically sent to the number of beats per second.
     //HOWEVER. This would only allow for full notes. Songs require at least 1/2 notes, so it is 1/2 this interval further.
     //We Will Rock You: 731.7 milliseconds per beat
-    // var timer = setInterval(timerLoop,365.85);
-    // function timerLoop(){
-    //   whatIsPushed(input);
-    // }
+     // var timer = setInterval(timerLoop,365.85);
+     // function timerLoop(){
+     //   $("#linespawner").spawnLine();
+     // }
   })
 
 var input = {};
 var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 var playerInput = 'rygbp';//Declaring the 'default' input as no keys pushed
-var lastInput = "rygbp"; 
+var lastInput = "rygbp";
 
 $(document).keydown(function(event){
   if (jQuery.inArray(event.which,acceptedKeys)!=-1) {
@@ -100,28 +99,58 @@ function whatIsPushed(keys){
     removePushed($("#purple"));
     playerInput += 'p';
   }
-  printKeys(playerInput);
+  //printKeys(playerInput);
   lastInput = playerInput;
   return playerInput;
 }
 
 function moveNote(){
-  var pos = 1;
-    var interval = setInterval(frame,10);
+  var pos = 0;
+  var incrament = 4;
+  var zoneLowerlimit = 700;
+  var zoneUpperlimit = 800;
+  var interval = setInterval(frame,10);
 
-    function frame(){
-      if (pos < 0){
-        clearInterval(interval);
-      } else {
-        pos += 1;
-        $('#demomove').css('margin-left', pos+ 'px');
-        if (pos > 500 && pos < 580 && playerInput[0]=='R') {
-          console.log("inside");
-          $('#demomove').remove();
-        }
+  function frame(){
+    if (pos < 0){
+      clearInterval(interval);
+    } else {
+      pos += incrament;
+      $('#demomove').css('margin-left', pos+ 'px');
+      if (pos > zoneLowerlimit && pos < zoneUpperlimit && playerInput[0]=='R') {
+        $('#demomove').remove();
+      } else if (pos > zoneUpperlimit) {
+        $('#demomove').remove();
       }
-      //console.log($('#demomove').css("margin-left"));
     }
+  }
 
   console.log("animating");
 }
+
+//
+// $.fn.spawnLine() = function(){
+//   console.log(this);
+//   $('#linespawner').html("<div id='newline'><div>")
+//   var pos = 0;
+//   var incrament = 4;
+//   var zoneLowerlimit = 350;
+//   var zoneUpperlimit = 400;
+//   var interval = setInterval(frame,10);
+//
+//   function frame(){
+//     if (pos < 0){
+//       clearInterval(interval);
+//     } else {
+//       pos += incrament;
+//       $('#newline').css('padding-top', pos+ 'px');
+//       if (pos > zoneLowerlimit && pos < zoneUpperlimit && playerInput[0]=='R') {
+//         $('#newline').remove();
+//       } else if (pos > zoneUpperlimit) {
+//         $('#newline').remove();
+//       }
+//     }
+//   }
+//
+//   console.log("animating line");
+// }
