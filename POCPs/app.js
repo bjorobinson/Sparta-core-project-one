@@ -48,28 +48,44 @@ function whatIsPushed(keys){
   }
   if (72 in keys){
     addPushed($("#yellow"));
-    playerInput += 'Y';
+    if (lastInput[1]!='y') {
+      playerInput += '>';
+    } else{
+      playerInput += 'Y';
+    }
   } else {
     removePushed($("#yellow"));
     playerInput += 'y';
   }
   if (74 in keys){
     addPushed($("#green"));
-    playerInput += 'G';
+    if (lastInput[2]!='g') {
+      playerInput += '>';
+    } else{
+      playerInput += 'G';
+    }
   } else {
     removePushed($("#green"));
     playerInput += 'g';
   }
   if (75 in keys){
     addPushed($("#blue"));
-    playerInput += 'B';
+    if (lastInput[3]!='b') {
+      playerInput += '>';
+    } else{
+      playerInput += 'B';
+    }
   } else {
     removePushed($("#blue"));
     playerInput += 'b';
   }
   if (76 in keys){
     addPushed($("#purple"));
-    playerInput += 'P';
+    if (lastInput[4]!='p') {
+      playerInput += '>';
+    } else{
+      playerInput += 'P';
+    }
   } else {
     removePushed($("#purple"));
     playerInput += 'p';
