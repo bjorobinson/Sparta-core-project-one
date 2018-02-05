@@ -98,8 +98,21 @@ function whatIsPushed(keys){
 }
 
 function moveNote(){
-  $("#demomove").animate({
-    left:"+=100px"
-  },10000)
+  // $("#demomove").animate({
+  //   left:"+=1000px"
+  // },10000)
+
+  var pos = 1;
+    var interval = setInterval(frame,10);
+
+    function frame(){
+      if (pos < 0){
+        clearInterval(interval);
+      } else {
+        pos += 1;
+        $('#demomove').css('margin-left', pos+ 'px');
+      }
+    }
+
   console.log("animating");
 }
