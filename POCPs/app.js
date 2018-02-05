@@ -1,11 +1,21 @@
 $(document).ready(function(){
     console.log("Working");
     moveNote();
+
+    //interval
+    //interval is typically sent to the number of beats per second.
+    //HOWEVER. This would only allow for full notes. Songs require at least 1/2 notes, so it is 1/2 this interval further.
+    //We Will Rock You: 731.7 milliseconds per beat
+    // var timer = setInterval(timerLoop,365.85);
+    // function timerLoop(){
+    //   whatIsPushed(input);
+    // }
   })
 
 var input = {};
 var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
-var lastInput = "rygbp"; //Declaring the 'default' input as no keys pushed
+var playerInput = 'rygbp';//Declaring the 'default' input as no keys pushed
+var lastInput = "rygbp"; 
 
 $(document).keydown(function(event){
   if (jQuery.inArray(event.which,acceptedKeys)!=-1) {
@@ -92,6 +102,7 @@ function whatIsPushed(keys){
   }
   printKeys(playerInput);
   lastInput = playerInput;
+  return playerInput;
 }
 
 function moveNote(){
@@ -104,7 +115,12 @@ function moveNote(){
       } else {
         pos += 1;
         $('#demomove').css('margin-left', pos+ 'px');
+        if (pos > 500 && pos < 580 && playerInput[0]=='R') {
+          console.log("inside");
+          $('#demomove').remove();
+        }
       }
+      //console.log($('#demomove').css("margin-left"));
     }
 
   console.log("animating");

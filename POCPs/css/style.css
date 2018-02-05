@@ -27,3 +27,14 @@
 #purple{
   background: purple;
 }
+
+#zone{
+  background: pink;
+  width: 80px;
+  height: 100px;
+  margin-left: 500px;
+}
+
+#demomove{
+  width:40px;
+}
