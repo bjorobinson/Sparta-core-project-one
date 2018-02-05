@@ -25,6 +25,7 @@ li{
 .redNote{
   background: red;
   margin-left: 30px;
+  position: absolute;
 }
 
 #newline{

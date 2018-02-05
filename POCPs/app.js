@@ -137,4 +137,33 @@ function spawnNote(noteClass){
   $(newNote).attr("id",Math.random()); //Generates random number ID
   $(newNote).appendTo('#notefall');
   console.log('note spawned');
+  moveNote($(newNote));
+}
+
+function moveNote(newNote){
+  // var pos = 0;
+  // var incrament = 1;
+  // var zoneLowerlimit = 700;
+  // var zoneUpperlimit = 800;
+  // var interval = setInterval(frame,10);
+  // function frame(){
+  //   if (pos < 0){
+  //     clearInterval(interval);
+  //   } else {
+  //     pos += incrament;
+  //     newNote.css('padding-top', pos+ 'px');
+  //     if (pos > zoneLowerlimit && pos < zoneUpperlimit && playerInput[0]=='R') {
+  //       newNote.remove();
+  //     } else if (pos > zoneUpperlimit) {
+  //       newNote.remove();
+  //     }
+  //   }
+  //}
+  newNote.animate({
+    top:'200px'
+  },4000,"linear", function(){
+    //excute when complete
+    console.log("complete");
+  });
+  console.log("animating note");
 }
