@@ -9,6 +9,8 @@ $(document).ready(function(){
      // function timerLoop(){
      //   $("#linespawner").spawnLine();
      // }
+
+     spawnNote("redNote");
   })
 
 var input = {};
@@ -104,38 +106,11 @@ function whatIsPushed(keys){
   return playerInput;
 }
 
-function moveNote(){
-  var pos = 0;
-  var incrament = 4;
-  var zoneLowerlimit = 700;
-  var zoneUpperlimit = 800;
-  var interval = setInterval(frame,10);
-
-  function frame(){
-    if (pos < 0){
-      clearInterval(interval);
-    } else {
-      pos += incrament;
-      $('#demomove').css('margin-left', pos+ 'px');
-      if (pos > zoneLowerlimit && pos < zoneUpperlimit && playerInput[0]=='R') {
-        $('#demomove').remove();
-      } else if (pos > zoneUpperlimit) {
-        $('#demomove').remove();
-      }
-    }
-  }
-
-  console.log("animating");
-}
-
-//
-// $.fn.spawnLine() = function(){
-//   console.log(this);
-//   $('#linespawner').html("<div id='newline'><div>")
+// function moveNote(){
 //   var pos = 0;
 //   var incrament = 4;
-//   var zoneLowerlimit = 350;
-//   var zoneUpperlimit = 400;
+//   var zoneLowerlimit = 700;
+//   var zoneUpperlimit = 800;
 //   var interval = setInterval(frame,10);
 //
 //   function frame(){
@@ -143,14 +118,23 @@ function moveNote(){
 //       clearInterval(interval);
 //     } else {
 //       pos += incrament;
-//       $('#newline').css('padding-top', pos+ 'px');
+//       $('#demomove').css('margin-left', pos+ 'px');
 //       if (pos > zoneLowerlimit && pos < zoneUpperlimit && playerInput[0]=='R') {
-//         $('#newline').remove();
+//         $('#demomove').remove();
 //       } else if (pos > zoneUpperlimit) {
-//         $('#newline').remove();
+//         $('#demomove').remove();
 //       }
 //     }
 //   }
 //
-//   console.log("animating line");
+//   console.log("animating");
 // }
+
+function spawnNote(noteClass){
+  var newNote = document.createElement("div");
+  $(newNote).addClass("note");
+  $(newNote).addClass(noteClass); //sets the background colour and where it will spawn on the board
+  $(newNote).attr("id",Math.random()); //Generates random number ID
+  $(newNote).appendTo('#notefall');
+  console.log('note spawned');
+}
