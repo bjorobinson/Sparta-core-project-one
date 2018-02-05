@@ -26,6 +26,7 @@ $(document).ready(function(){
 
 var input = {};
 var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
+var lastInput = "rygbp"; //Declaring the 'default' input as no keys pushed
 
 $(document).keydown(function(event){
   if (jQuery.inArray(event.which,acceptedKeys)!=-1) {
@@ -70,16 +71,20 @@ function removePushed(obj){
 
 //function to determine what keys are pushed, and then add pushed class to the right keys
 function whatIsPushed(keys){
-  playerInput='';
   // console.log(keys);
   // console.log(jQuery.inArray(71,keys));
   // console.log(jQuery.inArray(71,keys)!=-1);
   //if (jQuery.inArray(71,keys) != -1) {
   //if (keys.hasOwnProperty(71)) {
+  playerInput='';
   if (71 in keys){
     //console.log("add red");
     addPushed($("#red"));
-    playerInput += 'R';
+    if (lastInput[0]!='r') {
+      playerInput += '>';
+    } else{
+      playerInput += 'R';
+    }
   } else {
     removePushed($("#red"));
     //console.log("remove red");
@@ -113,8 +118,8 @@ function whatIsPushed(keys){
     removePushed($("#purple"));
     playerInput += 'p';
   }
-
   printKeys(playerInput);
+  lastInput = playerInput;
 }
 
 function moveNote(){
