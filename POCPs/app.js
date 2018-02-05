@@ -48,17 +48,9 @@ $(document).keyup(function(event){
   whatIsPushed(input);
 });
 
-// function printKeys() {
-//     var html = '';
-//     for (var i in keys) {
-//         //keys.hasOwnProperty(i) checks if i is a direct property of keys, or it has been inherited from elsewhere.
-//         //If i is not a direct property of keys, it skips this iteration of the loop
-//         // if (!keys.hasOwnProperty(i)) continue; //Continue breaks 1 iteration of the loop
-//         //It works with this commented out. But will keep around incase it turns out to be needed to prevent bug
-//         html += i + ', ';
-//     }
-//     $('#demo').html(html);
-// }
+ function printKeys(text) {
+   $('#demo').html("<p>" + text + "</p>");
+}
 
 // function hideImg(){
 //   $("#imgdemo").hide();
@@ -78,6 +70,7 @@ function removePushed(obj){
 
 //function to determine what keys are pushed, and then add pushed class to the right keys
 function whatIsPushed(keys){
+  playerInput='';
   // console.log(keys);
   // console.log(jQuery.inArray(71,keys));
   // console.log(jQuery.inArray(71,keys)!=-1);
@@ -86,15 +79,42 @@ function whatIsPushed(keys){
   if (71 in keys){
     //console.log("add red");
     addPushed($("#red"));
+    playerInput += 'R';
   } else {
     removePushed($("#red"));
     //console.log("remove red");
+    playerInput += 'r';
   }
   if (72 in keys){
     addPushed($("#yellow"));
+    playerInput += 'Y';
   } else {
     removePushed($("#yellow"));
+    playerInput += 'y';
   }
+  if (74 in keys){
+    addPushed($("#green"));
+    playerInput += 'G';
+  } else {
+    removePushed($("#green"));
+    playerInput += 'g';
+  }
+  if (75 in keys){
+    addPushed($("#blue"));
+    playerInput += 'B';
+  } else {
+    removePushed($("#blue"));
+    playerInput += 'b';
+  }
+  if (76 in keys){
+    addPushed($("#purple"));
+    playerInput += 'P';
+  } else {
+    removePushed($("#purple"));
+    playerInput += 'p';
+  }
+
+  printKeys(playerInput);
 }
 
 function moveNote(){
