@@ -21,13 +21,13 @@ $(document).ready(function(){
     //   console.log(event.which);
     // })
     //Is only called when key is lifted up. Will be useful in differentiating difference between hit and hold notes.
+    moveNote();
   })
 
 var input = {};
 var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 
 $(document).keydown(function(event){
-
   if (jQuery.inArray(event.which,acceptedKeys)!=-1) {
     //console.log(event.which);
     //Takes the accepted keys array, and returns the index of the first arguement, or -1 if it is not found
@@ -95,4 +95,11 @@ function whatIsPushed(keys){
   } else {
     removePushed($("#yellow"));
   }
+}
+
+function moveNote(){
+  $("#demomove").animate({
+    left:"+=100px"
+  },10000)
+  console.log("animating");
 }
