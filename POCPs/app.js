@@ -1,6 +1,6 @@
 $(document).ready(function(){
     console.log("Working");
-
+    hideImg();
     //onkeypress
     // $('#demo').keypress(function(event){
     //   console.log('keypress working');
@@ -28,11 +28,13 @@ var keys = {};
 $(document).keydown(function(event){
     keys[event.which] = true; //keys[event.which] adds the key pressed to array keys
     printKeys();
+    showImg();
 });
 
 $(document).keyup(function(event){
     delete keys[event.which];
     printKeys();
+    hideImg();
 });
 
 function printKeys() {
@@ -45,4 +47,12 @@ function printKeys() {
         html += i + ', ';
     }
     $('#demo').html(html);
+}
+
+function hideImg(){
+  $("#imgdemo").hide();
+}
+
+function showImg(){
+  $("#imgdemo").show();
 }
