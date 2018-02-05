@@ -1,0 +1,29 @@
+.note{
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+}
+
+.pushed{
+  opacity: 0.5;
+}
+
+#red{
+  background: red;
+}
+
+#yellow{
+  background: yellow;
+}
+
+#green{
+  background: green;
+}
+
+#blue{
+  background: blue;
+}
+
+#purple{
+  background: purple;
+}

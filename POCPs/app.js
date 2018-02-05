@@ -32,6 +32,7 @@ $(document).keydown(function(event){
     keys[event.which] = true; //keys[event.which] adds the key pressed to array keys
     printKeys();
     showImg();
+    addPushed();
   }
 });
 
@@ -39,6 +40,7 @@ $(document).keyup(function(event){
     delete keys[event.which];
     printKeys();
     hideImg();
+    removePushed();
 });
 
 function printKeys() {
@@ -59,4 +61,12 @@ function hideImg(){
 
 function showImg(){
   $("#imgdemo").show();
+}
+
+function addPushed(){
+  $("#red").addClass("pushed");
+}
+
+function removePushed(){
+  $("#red").removeClass("pushed");
 }
