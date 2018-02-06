@@ -28,6 +28,8 @@ li{
 .blue{}
 .purple{}
 
+.hit{}
+
 .redNote{
   background: red;
   margin-left: 30px;
@@ -62,10 +64,10 @@ li{
 
 #zone{
   background: pink;
-  height: 50px;
+  height: 100px;
 }
 
 #notefall{
   background: grey;
-  height: 350px;
+  height: 600px;
 }

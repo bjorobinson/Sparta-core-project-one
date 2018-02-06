@@ -1,18 +1,24 @@
 $(document).ready(function(){
     //new Audio('../music/Queen_We_Will_Rock_You.mp3').play()
+    new Audio('../music/82bpm_4-4time_metronome.mp3').play()
     console.log("Working");
     showScore();
 
     //The Song itself
     //This is going to be very fiddly as I try and line up to ensure sync;
     //Pause before song actually start
+    //waitBar();
+    waitBeat();
+    waitBeat();
+    waitBeat();
     waitBar();
-    waitBar();
-    //The "base base snare" for 1 bar of we will rock you
-    chorus();
-    chorus();
-    chorus();
-    chorus();
+    //The "base base snare" for 1 bar
+    // chorus();
+    // chorus();
+    // chorus();
+    for (var i = 0; i < 56; i++) {
+      chorus();
+    }
   })
 
 var input = {};
@@ -22,8 +28,9 @@ var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 var spawnIterator = 0;
 var checkIterator = 0;
 var globDelay = 0;
-var globDelayIt = 360; //This is the time inbetween each 1/2 beat in the song.
-var noteTime = 1050; //The time it will take a note to reach the top of the screen to the end zone
+//bpm -> 731.7 ms per beat -> 365.85
+var globDelayIt = (60000/164); //This is the time inbetween each 1/2 beat in the song.
+var noteTime = globDelayIt*2.5; //The time it will take a note to reach the top of the screen to the end zone
 var score = 0;
 
 //Music and Time-based functions
@@ -128,7 +135,8 @@ function hasNote(colour){
   var nextNote = $("#"+checkIterator);
   try{
     if ((nextNote.offset().top > obj.offset().top-40) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
-      addScore();
+      //addScore();
+      nextNote.addClass('hit');
       nextNote.remove();
     } else {
       subtractScore();
@@ -158,10 +166,19 @@ function spawnNote(noteColour){
 
 function moveNote(newNote){
   newNote.animate({
-    top:'400px'
+    top:'800px'
   },noteTime,"linear", function(){
     //excute when complete
+    setPoints(newNote);
     newNote.remove();
     checkIterator += 1;
   });
+}
+
+function setPoints(obj){
+  if (obj.hasClass('hit')) {
+    addScore();
+  } else {
+    subtractScore();
+  }
 }
