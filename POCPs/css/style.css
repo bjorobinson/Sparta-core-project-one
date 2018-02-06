@@ -11,7 +11,8 @@ li{
   width:50px;
   height:50px;
   border-radius: 50%;
-  margin-right:50px;
+  /* margin-right:100px; */
+  margin: auto 50px;
 }
 
 .noteLine{
@@ -32,13 +33,31 @@ li{
 
 .redNote{
   background: red;
-  margin-left: 30px;
+  margin-left: 50px;
   position: absolute;
+}
+
+.yellowNote{
+  background: yellow;
+  margin-left: 150px;
+  position:absolute;
 }
 
 .greenNote{
   background: green;
-  margin-left: 80px;
+  margin-left: 250px;
+  position: absolute;
+}
+
+.blueNote{
+  background: blue;
+  margin-left: 350px;
+  position:absolute;
+}
+
+.purpleNote{
+  background: purple;
+  margin-left: 450px;
   position: absolute;
 }
 
@@ -47,19 +66,19 @@ li{
 }
 
 #yellow{
-  background: yellow;
+  border:1px solid yellow;
 }
 
 #green{
-  background: green;
+  border:1px solid green;
 }
 
 #blue{
-  background: blue;
+  border:1px solid blue;
 }
 
 #purple{
-  background: purple;
+  border:1px solid purple;
 }
 
 #zone{
