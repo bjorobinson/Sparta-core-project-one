@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log("Working");
+    showScore();
     // moveNote();
 
     //interval is typically sent to the number of beats per second.
@@ -10,8 +11,20 @@ $(document).ready(function(){
      //   $("#linespawner").spawnLine();
      // }
 
+     //Count in 1, 2, 3, 4
+     spawnRest();
+     spawnRest();
+     spawnRest();
+     spawnRest();
+     //The "base base snare" for 1 bar of we will rock you
+     spawnNote("red");
      spawnNote("red");
      spawnNote("green");
+     spawnRest();
+     spawnNote("red");
+     spawnNote("red");
+     spawnNote("green");
+     spawnRest();
   })
 
 var input = {};
@@ -21,6 +34,21 @@ var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 var spawnIterator = 0;
 var checkIterator = 0;
 var globDelay = 0;
+var score = 0;
+
+function showScore(){
+  $("#score").html(score);
+}
+
+function addScore(){
+  score ++;
+  showScore();
+}
+
+function subtractScore(){
+  score --;
+  showScore();
+}
 
 //function to convert keycodes of valid button pushes into what colours they referred to.
 function whatButton(keyCodeIn){
@@ -77,18 +105,35 @@ function hasNote(colour){
   //check if boundaries contain an object of type 'rednote'
   //console.log(colour);
   var obj = $("#"+colour);
-  console.log(obj);
+  //console.log(obj);
   var nextNote = $("#"+checkIterator);
   //console.log(nextNote);
   // console.log(nextNote.offset().top);
   //console.log($("#" + whatButton(obj)));
-  if ((nextNote.offset().top > obj.offset().top-20) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
-    console.log("hit!");
-    nextNote.remove();
-    // checkIterator += 1;
-  } else {
-    console.log("miss!");
+  try{
+    if ((nextNote.offset().top > obj.offset().top-20) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
+      //console.log("hit!");
+      addScore();
+      nextNote.remove();
+      // checkIterator += 1;
+    } else {
+      subtractScore();
+      //console.log("miss!");
+    }
   }
+  catch(err){
+    console.log(err.message);
+    subtractScore();
+  }
+  // if ((nextNote.offset().top > obj.offset().top-20) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
+  //   //console.log("hit!");
+  //   addScore();
+  //   nextNote.remove();
+  //   // checkIterator += 1;
+  // } else {
+  //   subtractScore();
+  //   //console.log("miss!");
+  // }
   //if so, delete said rednote and console log it
 
 }
@@ -170,13 +215,20 @@ function spawnNote(noteColour){
     //console.log($(newNote));
     moveNote($(newNote));
   },globDelay);
-  globDelay += 2000;
+  globDelay += 500;
+}
+
+function spawnRest(){
+  setTimeout(function(){
+    console.log("rest");
+  },globDelay)
+  globDelay += 500;
 }
 
 function moveNote(newNote){
   newNote.animate({
     top:'400px'
-  },4000,"linear", function(){
+  },1000,"linear", function(){
     //excute when complete
     newNote.remove();
     checkIterator += 1;
