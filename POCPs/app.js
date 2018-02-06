@@ -10,9 +10,8 @@ $(document).ready(function(){
      //   $("#linespawner").spawnLine();
      // }
 
-     spawnNote("redNote");
-     spawnNote("redNote");
-     // spawnNote("greenNote");
+     spawnNote("red");
+     spawnNote("green");
   })
 
 var input = {};
@@ -52,7 +51,8 @@ $(document).keydown(function(event){
     input[keycode] = true; //creates an object in input with event.which as its key
     addPushed($("#" + whatButton(keycode)));
     // whatIsPushed(input);
-    hasNote();
+    // hasNote($("#" + whatButton(keycode)));
+    hasNote(whatButton(keycode));
   }
 });
 
@@ -72,12 +72,17 @@ function removePushed(obj){
 }
 
 //function to check if the arguement button has a note in it
-function hasNote(){
+function hasNote(colour){
   //by default, our arg is red
   //check if boundaries contain an object of type 'rednote'
+  //console.log(colour);
+  var obj = $("#"+colour);
+  console.log(obj);
   var nextNote = $("#"+checkIterator);
+  //console.log(nextNote);
   // console.log(nextNote.offset().top);
-  if (nextNote.offset().top > $("#red").offset().top-20) {
+  //console.log($("#" + whatButton(obj)));
+  if ((nextNote.offset().top > obj.offset().top-20) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
     console.log("hit!");
     nextNote.remove();
     // checkIterator += 1;
@@ -151,19 +156,21 @@ function hasNote(){
 //   return playerInput;
 // }
 
-function spawnNote(noteClass){
+function spawnNote(noteColour){
   setTimeout(function(){
     var newNote = document.createElement("div");
     $(newNote).addClass("note");
-    $(newNote).addClass(noteClass); //sets the background colour and where it will spawn on the board
+    $(newNote).addClass(noteColour);
+    $(newNote).addClass(noteColour+"Note"); //sets the background colour and where it will spawn on the board
     // $(newNote).attr("id",Math.random()); //Generates random number ID
     $(newNote).attr("id",spawnIterator);
     spawnIterator++;
     $(newNote).appendTo('#notefall');
-    console.log('note spawned');
+    //console.log('note spawned');
+    //console.log($(newNote));
     moveNote($(newNote));
   },globDelay);
-  globDelay += 1000;
+  globDelay += 2000;
 }
 
 function moveNote(newNote){
@@ -174,6 +181,6 @@ function moveNote(newNote){
     newNote.remove();
     checkIterator += 1;
   });
-  console.log("animating note");
-  console.log(newNote.offset());
+  //console.log("animating note");
+  //console.log(newNote.offset());
 }
