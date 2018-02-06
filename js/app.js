@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    //new Audio('../music/Queen_We_Will_Rock_You.mp3').play()
-    new Audio('../music/82bpm_4-4time_metronome.mp3').play()
+    //new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
+    new Audio('./music/82bpm_4-4time_metronome.mp3').play()
     console.log("Working");
     showScore();
 

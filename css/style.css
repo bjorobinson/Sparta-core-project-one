@@ -30,6 +30,7 @@ li{
 .purple{}
 
 .hit{}
+.hold{}
 
 .redNote{
   background: red;
@@ -45,7 +46,7 @@ li{
 
 .greenNote{
   background: green;
-  margin-left: 250px;
+  margin-left: 350px;
   position: absolute;
 }
 
@@ -62,23 +63,28 @@ li{
 }
 
 #red{
-  border:1px solid red;
+  /* border:1px solid red; */
+  background: red;
 }
 
 #yellow{
-  border:1px solid yellow;
+  /* border:1px solid yellow; */
+  background: yellow;
 }
 
 #green{
-  border:1px solid green;
+  /* border:1px solid green; */
+  background: green;
 }
 
 #blue{
-  border:1px solid blue;
+  /* border:1px solid blue; */
+  background: blue;
 }
 
 #purple{
-  border:1px solid purple;
+  /* border:1px solid purple; */
+  background: purple;
 }
 
 #zone{
