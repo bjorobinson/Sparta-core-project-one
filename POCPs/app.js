@@ -13,10 +13,8 @@ $(document).ready(function(){
      // }
 
      //Count in 1, 2, 3, 4
-     spawnRest();
-     spawnRest();
-     spawnRest();
-     spawnRest();
+     waitBar();
+     waitBar();
      //The "base base snare" for 1 bar of we will rock you
      spawnNote("red");
      spawnNote("red");
@@ -35,7 +33,33 @@ var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 var spawnIterator = 0;
 var checkIterator = 0;
 var globDelay = 0;
+var globDelayIt = 350; //This is the time inbetween each 1/2 beat in the song.
+var noteTime = 1000; //The time it will take a note to reach the top of the screen to the end zone
 var score = 0;
+
+//Music and Time-based functions
+
+//wait equivalent time for 4 whole beats
+function waitBar(){
+  waitBeat();
+  waitBeat();
+  waitBeat();
+  waitBeat();
+}
+
+//wait equivalent time for 1 whole beat
+function waitBeat(){
+  spawnRest();
+  spawnRest();
+}
+
+//Base function for the 'waiting' - it waits equivalent time for 1/2 a beat
+function spawnRest(){
+  setTimeout(function(){
+    console.log("rest");
+  },globDelay)
+  globDelay += globDelayIt;
+}
 
 function showScore(){
   $("#score").html(score);
@@ -216,20 +240,13 @@ function spawnNote(noteColour){
     //console.log($(newNote));
     moveNote($(newNote));
   },globDelay);
-  globDelay += 500;
-}
-
-function spawnRest(){
-  setTimeout(function(){
-    console.log("rest");
-  },globDelay)
-  globDelay += 500;
+  globDelay += globDelayIt;
 }
 
 function moveNote(newNote){
   newNote.animate({
     top:'400px'
-  },1000,"linear", function(){
+  },noteTime,"linear", function(){
     //excute when complete
     newNote.remove();
     checkIterator += 1;
