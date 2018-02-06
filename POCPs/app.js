@@ -6,16 +6,11 @@ $(document).ready(function(){
 
     //The Song itself
     //This is going to be very fiddly as I try and line up to ensure sync;
-    //Pause before song actually start
-    //waitBar();
+
     waitBeat();
     waitBeat();
     waitBeat();
     waitBar();
-    //The "base base snare" for 1 bar
-    // chorus();
-    // chorus();
-    // chorus();
     for (var i = 0; i < 56; i++) {
       chorus();
     }
@@ -23,8 +18,6 @@ $(document).ready(function(){
 
 var input = {};
 var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
-// var playerInput = 'rygbp';//Declaring the 'default' input as no keys pushed
-// var lastInput = "rygbp";
 var spawnIterator = 0;
 var checkIterator = 0;
 var globDelay = 0;
@@ -134,8 +127,7 @@ function hasNote(colour){
   var obj = $("#"+colour);
   var nextNote = $("#"+checkIterator);
   try{
-    if ((nextNote.offset().top > obj.offset().top-40) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
-      //addScore();
+    if ((nextNote.offset().top > obj.offset().top-50) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
       nextNote.addClass('hit');
       nextNote.remove();
     } else {
