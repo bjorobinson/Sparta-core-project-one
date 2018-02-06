@@ -28,8 +28,10 @@ li{
   position: absolute;
 }
 
-#newline{
-  border-bottom: 1px solid black;
+.greenNote{
+  background: green;
+  margin-left: 80px;
+  position: absolute;
 }
 
 #red{
