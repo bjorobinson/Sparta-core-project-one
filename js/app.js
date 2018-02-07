@@ -23,7 +23,12 @@ $(document).ready(function(){
     for (var i = 0; i < 27; i++) {
       chorus();
     }
+    spawnRest(); //Rest between sections to attempt to manually fix the desync that'll have been caused by this point
     longStrum();
+    waitBeat();
+    waitBeat();
+    waitBeat();
+    solo();
   })
 
 var input = {};
@@ -78,6 +83,85 @@ function longStrum(){
     spawnNote("yellow");
     spawnRest();
   }
+}
+
+//The final guitar solo
+function solo(){
+  //soloArray = ["yellow","red"...etc etc]
+  //for counter in soloArray
+    //spawnNote(soloArray[counter])
+    //spawnRest
+
+  //Below is WIP wet code
+  spawnNote("green");
+  spawnRest();
+  spawnNote("red");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("red");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("green");
+  spawnRest();
+  spawnNote("yellow")
+  spawnRest();
+  spawnRest();
+  spawnNote("blue");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("purple");
+  spawnRest();
+  spawnNote("blue");
 }
 
 function showScore(){
@@ -145,7 +229,8 @@ function hasNote(colour){
   var obj = $("#"+colour);
   var nextNote = $("#"+checkIterator);
   try{
-    if ((nextNote.offset().top > obj.offset().top-50) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
+    //-100 is the margin for error. It is intentionally very generous.
+    if ((nextNote.offset().top > obj.offset().top-100) && obj.hasClass(colour) && nextNote.hasClass(colour)) {
       nextNote.addClass('hit');
       nextNote.remove();
     } else {
