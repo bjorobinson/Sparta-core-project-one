@@ -7,11 +7,11 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <!-- css -->
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body class="container">
     <div id = "board">
       <div id = "notefall"><!--Where Notes come down from-->
       </div>
@@ -21,8 +21,15 @@
         <li id="green" class="note green">J</li>
         <li id="blue" class="note blue">K</li>
         <li id="purple" class="note purple">L</li>
-        <div id = "score"></div>
       </div>
     </div>
   </body>
+  <footer class="container row">
+    <div class="col-xs-6">
+      <div id = "score"></div>
+    </div>
+    <div class="col-xs-6">
+      <div id ="instructions">Match the coloured notes with the notes on your keyboard when they arrive near the pink zone. A matched note will score a point, a missed note will loose a point, a note played when one is not due will also lose a point.</div>
+    </div>
+  </footer>
 </html>
