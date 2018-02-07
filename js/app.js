@@ -1,34 +1,32 @@
 $(document).ready(function(){
-    new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
+    // new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
     //new Audio('./music/82bpm_4-4time_metronome.mp3').play()
     //new Audio('./music/82bpm_4-4time_min.mp3').play()
     console.log("Working");
     showScore();
-
-    //The Song itself
-    //This is going to be very fiddly as I try and line up to ensure sync;
-
-    waitBeat();
-    waitBeat();
-    waitBeat();
-    spawnRest();
+    //playSong();
+    //
+    // //The Song itself
     // waitBeat();
-    waitBar();
+    // waitBeat();
+    // waitBeat();
+    // spawnRest();
+    // waitBar();
+    // for (var i = 0; i < 27; i++) {
+    //   chorus();
+    // }
+    // spawnRest(); //Rest between sections to attempt to manually fix the desync that'll have been caused by this point
+    // longStrum();
+    // waitBeat();
+    // waitBeat();
+    // waitBeat();
+    // solo();
 
-    // spawnNote("red");
-    // spawnNote("yellow");
-    // spawnNote("green");
-    // spawnNote("blue");
-    // spawnNote("purple");
-    for (var i = 0; i < 27; i++) {
-      chorus();
-    }
-    spawnRest(); //Rest between sections to attempt to manually fix the desync that'll have been caused by this point
-    longStrum();
-    waitBeat();
-    waitBeat();
-    waitBeat();
-    solo();
+    $("#start_btn").click(function(){
+      playSong();
+      $("#start_btn").hide();
+    })
+
   })
 
 var input = {};
@@ -42,6 +40,25 @@ var noteTime = globDelayIt*3; //The time it will take a note to reach the top of
 var score = 0;
 
 //Music and Time-based functions
+function playSong(){
+  new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
+  //The Song itself
+  waitBeat();
+  waitBeat();
+  waitBeat();
+  spawnRest();
+  waitBar();
+  for (var i = 0; i < 27; i++) {
+    chorus();
+  }
+  spawnRest(); //Rest between sections to attempt to manually fix the desync that'll have been caused by this point
+  longStrum();
+  waitBeat();
+  waitBeat();
+  waitBeat();
+  solo();
+}
+
 
 //wait equivalent time for 4 whole beats
 function waitBar(){
