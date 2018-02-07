@@ -41,6 +41,7 @@ var score = 0;
 
 //Music and Time-based functions
 function playSong(){
+  score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
   new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
   //The Song itself
   waitBeat();
@@ -57,6 +58,18 @@ function playSong(){
   waitBeat();
   waitBeat();
   solo();
+  //End of song, displaying result
+  endScore();
+}
+
+function endScore(){
+  waitBeat();
+
+  setTimeout(function(){
+    showFinalScore();
+    $('#myModal').modal('show');
+  },globDelay)
+  globDelay += globDelayIt;
 }
 
 
@@ -114,6 +127,10 @@ function solo(){
       spawnRest();
     }
   }
+}
+
+function showFinalScore(){
+  $("#score_result").html("Your final score: " + score);
 }
 
 function showScore(){
