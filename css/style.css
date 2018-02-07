@@ -31,6 +31,7 @@ body{
   border-radius: 50%;
   /* margin-right:100px; */
   margin: auto 2.6%;
+  text-align: center;
 }
 
 .noteLine{
@@ -52,31 +53,31 @@ body{
 
 .redNote{
   background: red;
-  margin-left: 50px;
+  margin-left: 2%;
   position: absolute;
 }
 
 .yellowNote{
   background: yellow;
-  margin-left: 150px;
+  margin-left: 21%;
   position:absolute;
 }
 
 .greenNote{
   background: green;
-  margin-left: 350px;
+  margin-left: 40%;
   position: absolute;
 }
 
 .blueNote{
   background: blue;
-  margin-left: 350px;
+  margin-left: 59%;
   position:absolute;
 }
 
 .purpleNote{
   background: purple;
-  margin-left: 450px;
+  margin-left: 77%;
   position: absolute;
 }
 
@@ -120,6 +121,7 @@ body{
   text-align: right;
   margin-right: 20%;
   padding: none;
+  color: white;
 }
 
 #instructions{

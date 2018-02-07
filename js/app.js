@@ -10,10 +10,16 @@ $(document).ready(function(){
     waitBeat();
     waitBeat();
     waitBeat();
-    waitBar();
-    for (var i = 0; i < 56; i++) {
-      chorus();
-    }
+    //waitBar();
+
+    spawnNote("red");
+    spawnNote("yellow");
+    spawnNote("green");
+    spawnNote("blue");
+    spawnNote("purple");
+    // for (var i = 0; i < 56; i++) {
+    //   chorus();
+    // }
   })
 
 var input = {};
