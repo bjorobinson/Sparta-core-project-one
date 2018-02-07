@@ -81,87 +81,22 @@ function chorus(){
 function longStrum(){
   for (var i = 0; i < 16; i++) {
     spawnNote("yellow");
-    spawnRest();
+    spawnNote("yellow");
   }
 }
 
 //The final guitar solo
 function solo(){
   //soloArray = ["yellow","red"...etc etc]
-  //for counter in soloArray
-    //spawnNote(soloArray[counter])
-    //spawnRest
-
-  //Below is WIP wet code
-  spawnNote("green");
-  spawnRest();
-  spawnNote("red");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("red");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("green");
-  spawnRest();
-  spawnNote("yellow")
-  spawnRest();
-  spawnRest();
-  spawnNote("blue");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("purple");
-  spawnRest();
-  spawnNote("blue");
+  var soloArray = ['green','red','green','green','green','red','green','green','green','purple','green','purple','green','blue','green','blue','green','purple','green','purple','green','blue','blue','blue','rest','blue','purple','purple','blue','green','yellow','rest','blue','purple','purple','blue'];
+  for (var counter = 0; counter < soloArray.length; counter++) {
+    if (soloArray[counter]=='rest') {
+      spawnRest();
+    } else {
+      spawnNote(soloArray[counter]);
+      spawnRest();
+    }
+  }
 }
 
 function showScore(){
