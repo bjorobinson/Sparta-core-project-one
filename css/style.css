@@ -29,7 +29,6 @@ body{
   width:50px;
   height:50px;
   border-radius: 50%;
-  /* margin-right:100px; */
   margin: auto 2.6%;
   text-align: center;
   font-size: 30px;
@@ -88,37 +87,30 @@ body{
 }
 
 #red{
-  /* border:1px solid red; */
   background: red;
 }
 
 #yellow{
-  /* border:1px solid yellow; */
   background: yellow;
 }
 
 #green{
-  /* border:1px solid green; */
   background: green;
 }
 
 #blue{
-  /* border:1px solid blue; */
   background: blue;
 }
 
 #purple{
-  /* border:1px solid purple; */
   background: purple;
 }
 
 #zone{
-  /* background: pink; */
   height: 100px;
 }
 
 #notefall{
-  /* background: grey; */
   height: 600px;
 }
 

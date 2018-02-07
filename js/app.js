@@ -1,27 +1,6 @@
 $(document).ready(function(){
-    // new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
-    //new Audio('./music/82bpm_4-4time_metronome.mp3').play()
-    //new Audio('./music/82bpm_4-4time_min.mp3').play()
     console.log("Working");
     showScore();
-    //playSong();
-    //
-    // //The Song itself
-    // waitBeat();
-    // waitBeat();
-    // waitBeat();
-    // spawnRest();
-    // waitBar();
-    // for (var i = 0; i < 27; i++) {
-    //   chorus();
-    // }
-    // spawnRest(); //Rest between sections to attempt to manually fix the desync that'll have been caused by this point
-    // longStrum();
-    // waitBeat();
-    // waitBeat();
-    // waitBeat();
-    // solo();
-
     $("#start_btn").click(function(){
       playSong();
       $("#start_btn").hide();
@@ -34,7 +13,6 @@ var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
 var spawnIterator = 0;
 var checkIterator = 0;
 var globDelay = 0;
-//bpm -> 731.7 ms per beat -> 365.85
 var globDelayIt = (60000/(81*2)); //This is the time inbetween each 1/2 beat in the song.
 var noteTime = globDelayIt*3; //The time it will take a note to reach the top of the screen to the end zone
 var score = 0;
@@ -90,7 +68,6 @@ function waitBeat(){
 //Base function for the 'waiting' - it waits equivalent time for 1/2 a beat
 function spawnRest(){
   setTimeout(function(){
-    // console.log("rest");
   },globDelay)
   globDelay += globDelayIt;
 }
