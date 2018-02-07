@@ -56,7 +56,7 @@ function spawnRest(){
   globDelay += globDelayIt;
 }
 
-//The function that spawns the 'base base snare' bar that's repeated through the song
+//The 'base base snare' bar that's repeated through the start of the song
 function chorus(){
   spawnNote("red");
   spawnNote("red");
