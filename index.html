@@ -12,24 +12,35 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="container">
-    <div id = "board">
-      <div id = "notefall"><!--Where Notes come down from-->
+
+    <div class="row">
+      <div class="col-xs-2">
+        <div id = "score"></div>
       </div>
-      <div id = "zone"><!--Pink Accept Zone-->
-        <li id="red" class="note red">G</li>
-        <li id="yellow" class="note yellow">H</li>
-        <li id="green" class="note green">J</li>
-        <li id="blue" class="note blue">K</li>
-        <li id="purple" class="note purple">L</li>
+      <div class="col-xs-8">
+        <div id = "board">
+          <div id = "notefall"><!--Where Notes come down from-->
+          </div>
+          <div id = "zone"><!--Pink Accept Zone-->
+            <li id="red" class="note red">G</li>
+            <li id="yellow" class="note yellow">H</li>
+            <li id="green" class="note green">J</li>
+            <li id="blue" class="note blue">K</li>
+            <li id="purple" class="note purple">L</li>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2">
+          <div id ="instructions">Match the coloured notes with the notes on your keyboard when they arrive near the pink zone. A matched note will score a point, a missed note will loose a point, a note played when one is not due will also lose a point.</div>
       </div>
     </div>
   </body>
-  <footer class="container row">
+  <!-- <footer class="container row">
     <div class="col-xs-6">
       <div id = "score"></div>
     </div>
     <div class="col-xs-6">
       <div id ="instructions">Match the coloured notes with the notes on your keyboard when they arrive near the pink zone. A matched note will score a point, a missed note will loose a point, a note played when one is not due will also lose a point.</div>
     </div>
-  </footer>
+  </footer> -->
 </html>

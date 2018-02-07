@@ -63,7 +63,7 @@ function chorus(){
 }
 
 function showScore(){
-  $("#score").html(score);
+  $("#score").html("Score: " + score);
 }
 
 function addScore(){
