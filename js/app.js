@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    //new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
-    new Audio('./music/82bpm_4-4time_metronome.mp3').play()
+    new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
+    //new Audio('./music/82bpm_4-4time_metronome.mp3').play()
+    //new Audio('./music/82bpm_4-4time_min.mp3').play()
     console.log("Working");
     showScore();
 
@@ -10,16 +11,19 @@ $(document).ready(function(){
     waitBeat();
     waitBeat();
     waitBeat();
-    //waitBar();
+    spawnRest();
+    // waitBeat();
+    waitBar();
 
-    spawnNote("red");
-    spawnNote("yellow");
-    spawnNote("green");
-    spawnNote("blue");
-    spawnNote("purple");
-    // for (var i = 0; i < 56; i++) {
-    //   chorus();
-    // }
+    // spawnNote("red");
+    // spawnNote("yellow");
+    // spawnNote("green");
+    // spawnNote("blue");
+    // spawnNote("purple");
+    for (var i = 0; i < 27; i++) {
+      chorus();
+    }
+    longStrum();
   })
 
 var input = {};
@@ -28,8 +32,8 @@ var spawnIterator = 0;
 var checkIterator = 0;
 var globDelay = 0;
 //bpm -> 731.7 ms per beat -> 365.85
-var globDelayIt = (60000/164); //This is the time inbetween each 1/2 beat in the song.
-var noteTime = globDelayIt*2.5; //The time it will take a note to reach the top of the screen to the end zone
+var globDelayIt = (60000/(81*2)); //This is the time inbetween each 1/2 beat in the song.
+var noteTime = globDelayIt*3; //The time it will take a note to reach the top of the screen to the end zone
 var score = 0;
 
 //Music and Time-based functions
@@ -66,6 +70,14 @@ function chorus(){
   spawnNote("red");
   spawnNote("green");
   spawnRest();
+}
+
+//The long between the base base snare and the guitar solo
+function longStrum(){
+  for (var i = 0; i < 16; i++) {
+    spawnNote("yellow");
+    spawnRest();
+  }
 }
 
 function showScore(){
@@ -164,7 +176,7 @@ function spawnNote(noteColour){
 
 function moveNote(newNote){
   newNote.animate({
-    top:'800px'
+    top:'700px'
   },noteTime,"linear", function(){
     //excute when complete
     setPoints(newNote);
