@@ -32,6 +32,7 @@ body{
   /* margin-right:100px; */
   margin: auto 2.6%;
   text-align: center;
+  font-size:30px;
 }
 
 .noteLine{
@@ -117,10 +118,10 @@ body{
 }
 
 #score{
-  margin-top: 150%;
+  font-size: 32px;
+  margin-top: 145%;
   text-align: right;
-  margin-right: 20%;
-  padding: none;
+  margin-right: 10%;
   color: white;
 }
 
