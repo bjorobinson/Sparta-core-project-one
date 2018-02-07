@@ -26,6 +26,7 @@ function playSong(){
   waitBeat();
   waitBeat();
   spawnRest();
+  new Audio('./music/81bpm_4-4time_5count_in.mp3').play()
   waitBar();
   for (var i = 0; i < 27; i++) {
     chorus();
