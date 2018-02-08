@@ -69,3 +69,5 @@ The game is a rhythm game inspired, in both gameplay and style, by Guitar Hero a
 Click the Begin Song button to begin the game. Match the coloured notes with their corresponding keys when the notes reach the accept zone, denoted by the gold pickup in the background image. A matched note will score a point, a missed note will lose a point, a note played when one is not due will also lose a point.
 
 ## Screenshot
+
+![screenshot](./images/readme_screenshot.png)
