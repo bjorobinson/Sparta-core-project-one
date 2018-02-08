@@ -8,6 +8,7 @@
 * [Installation](#installation)
 * [Requirements](#requirements)
 * [User Stories](#user-stories)
+* [Code Extracts](#code-extracts)
 * [The Game](#the-game)
 
 ## Software and Dependencies
@@ -52,6 +53,20 @@ The User Stories of Sprint One were aimed at producing a Minimum Viable Product,
 * As a user, I want immediate feedback that I have hit the right notes at the right point in time.
 * As a user, I want there to be a score counter that increases as you hit the right notes
 
+##### Wireframe
+
+Below is the first wireframe drawn to try to bring together and show what the program would look like. The project changed a great deal during development, so while it accurately shows an outline, it differs a great deal from the final product.
+
+![screenshot](./images/initial_wireframe.JPG)
+
+##### Issues
+
+The following features were planned to be part of the MVP and final product, but were cut after the end of sprint one due to time constraints.
+* Multiple Songs
+* Having two notes to hit at the same time
+* Having notes to hit and hold
+* An animated metronome
+
 #### Sprint Two
 
 With the MVP created. Sprint Two focused on extra features to enhance the core features. For example:
@@ -59,6 +74,61 @@ With the MVP created. Sprint Two focused on extra features to enhance the core f
 * As a user, I want to be able to decide when the song starts
 * As a user, I want to hear four drum taps counting me in
 * As a user, I want the ui to look visually appealing
+
+##### Successes and Challenges
+
+The greatest challenge of sprint two was ensuring the sync between the song and the notes to be played was close. This was solved with the use of repeated calls to a single function that handled most timings, which is elaborated further on in the Code Extracts sections.
+
+## Code Extracts
+
+This section is dedicated to pieces of code that form fundamental pieces of the program. These extracts are all part of `js/app.js`.
+
+### The Timing
+
+Timing of the notes is key during runtime, and most functions in app.js that involve time call this function, to wait for a set period of time,at some point:
+
+```javascript
+function spawnRest(){
+  setTimeout(function(){
+  },globDelay)
+  globDelay += globDelayIt;
+}
+```
+Where
+```Javascript
+var globDelay = 0;
+```
+Is the cumulative time each new calling of the function must wait
+```Javascript
+var globDelayIt = 60000 / (81 * 2);
+```
+Is the iterator that is added to globDelay on each call. The value represents the time between each 1/2 beat in ms, for a song that is 81 BPM.
+
+### The Input
+
+Below is the definition of where the user input is stored, and the functions that handle input on a keydown and keyup event call. For the purpose of this explination, I'd ask to draw your attention to the code that specifically deal with the `input` variable.
+
+```javascript
+var input = {}
+...
+$(document).keydown(function(event){
+  if (jQuery.inArray(event.which,acceptedKeys)!=-1) {
+    var keycode = event.which
+    input[keycode] = true;
+    addPushed($("#" + whatButton(keycode)));
+    hasNote(whatButton(keycode));
+  }
+});
+...
+$(document).keyup(function(event){
+  var keycode = event.which
+  delete input[keycode];
+  removePushed($("#" + whatButton(keycode)));
+});
+```
+`input` in this program is an object, as opposed to, for example, an array. When a button is pressed, the colour keycode is then created as a key to the object. This had the following benefits:
+* Javascript objects cannot have duplicate keys, so repeated calls of the keydown function (through holding the key down) will do nothing.
+* `delete object[key]` is far easier than removing a member from an array, which may have required me to keep constant track of the index and contents of the input array.
 
 # The Game
 
