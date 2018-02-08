@@ -1,13 +1,12 @@
 $(document).ready(function(){
+  showScore();
+  $("#start_btn").click(function(){
+    score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
     showScore();
-    $("#start_btn").click(function(){
-      score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
-      showScore();
-      playSong();
-      $("#start_btn").hide();
-    })
-
+    playSong();
+    $("#start_btn").hide();
   })
+})
 
 var input = {};
 var acceptedKeys = [71,72,74,75,76]; //G,H,J,K,L
