@@ -2,6 +2,8 @@ $(document).ready(function(){
     console.log("Working");
     showScore();
     $("#start_btn").click(function(){
+      score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
+      showScore();
       playSong();
       $("#start_btn").hide();
     })
@@ -19,7 +21,6 @@ var score = 0;
 
 //Music and Time-based functions
 function playSong(){
-  score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
   new Audio('./music/Queen_We_Will_Rock_You.mp3').play()
   //The Song itself
   waitBeat();
