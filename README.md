@@ -62,7 +62,7 @@ With the MVP created. Sprint Two focused on extra features to enhance the core f
 
 # The Game
 
-The game is a rhythm game inspired, in both gameplay and style, by Guitar Hero and Rock Band.
+The game is a rhythm game inspired, in both gameplay and style, by Guitar Hero and Rock Band. It has been tuned for the player to 'play' through Queen - We Will Rock You.
 
 ## Instructions
 
