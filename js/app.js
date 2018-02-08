@@ -1,8 +1,6 @@
 $(document).ready(function(){
   showScore();
   $("#start_btn").click(function(){
-    score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
-    showScore();
     playSong();
     $("#start_btn").hide();
   })
@@ -119,8 +117,10 @@ function addScore(){
 }
 
 function subtractScore(){
-  score --;
-  showScore();
+  if (score > 0){
+    score --;
+    showScore();
+  }
 }
 
 //function to convert keycodes of valid button pushes into what colours they referred to.
