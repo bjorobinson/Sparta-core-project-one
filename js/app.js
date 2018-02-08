@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    console.log("Working");
     showScore();
     $("#start_btn").click(function(){
       score = 0; // reset global score to 0 so people can experiment with the buttons before they start.
@@ -96,7 +95,6 @@ function longStrum(){
 
 //The final guitar solo
 function solo(){
-  //soloArray = ["yellow","red"...etc etc]
   var soloArray = ['green','red','green','green','green','red','green','green','green','purple','green','purple','green','blue','green','blue','green','purple','green','purple','green','blue','blue','blue','rest','blue','purple','purple','blue','green','yellow','rest','blue','purple','purple','blue'];
   for (var counter = 0; counter < soloArray.length; counter++) {
     if (soloArray[counter]=='rest') {
@@ -186,7 +184,6 @@ function hasNote(colour){
     }
   }
   catch(err){
-    console.log(err.message);
     subtractScore();
   }
 }
