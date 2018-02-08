@@ -77,7 +77,7 @@ With the MVP created. Sprint Two focused on extra features to enhance the core f
 
 ##### Successes and Challenges
 
-The greatest challenge of sprint two was ensuring the sync between the song and the notes to be played was close. This was solved with the use of repeated calls to a single function that handled most timings, which is elaborated further on in the Code Extracts sections.
+The greatest challenge of sprint two was ensuring the sync between the song and the notes to be played was close. This was solved with the use of repeated calls to a single function that handled most timings, which is elaborated on further in the Code Extracts section.
 
 ## Code Extracts
 
@@ -106,7 +106,7 @@ Is the iterator that is added to globDelay on each call. The value represents th
 
 ### The Input
 
-Below is the definition of where the user input is stored, and the functions that handle input on a keydown and keyup event call. For the purpose of this explination, I'd ask to draw your attention to the code that specifically deal with the `input` variable.
+Below is the definition of where the user input is stored, and the functions that handle input on a keydown and keyup event call. For the purpose of this explanation, I'd ask to draw your attention to the code that specifically deals with the `input` variable.
 
 ```javascript
 var input = {}
