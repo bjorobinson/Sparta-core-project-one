@@ -1,3 +1,4 @@
+/* Native Element overriding */
 ul {
   list-style-type:none;
   padding-left: 0px;
@@ -15,6 +16,7 @@ body{
   background-size: 200%;
 }
 
+/* Class Styling */
 .col-xs-6{
   margin: none;
   padding: 0px 0px;
@@ -34,14 +36,13 @@ body{
   font-size: 30px;
 }
 
-.noteLine{
-  border: 1px solid black;
-}
 
 .pushed{
   opacity: 0.5;
 }
 
+
+/* Blank CSS classes that are checked by app.js to check a key being pressed corresponds to the correct colour */
 .red{}
 .yellow{}
 .green{}
@@ -50,6 +51,7 @@ body{
 
 .hit{}
 
+/* Positioning and styling of the key notes */
 .redNote{
   background: red;
   margin-left: 2%;
@@ -79,6 +81,8 @@ body{
   margin-left: 77%;
   position: absolute;
 }
+
+/* ID styling */
 
 #start_btn{
   color:white;
