@@ -17,12 +17,7 @@ body{
 }
 
 /* Class Styling */
-.col-xs-6{
-  margin: none;
-  padding: 0px 0px;
-}
-
-.col-xs-2{
+.col-xs{
   margin: none;
   padding: 0px 0px;
 }

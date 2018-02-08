@@ -8,8 +8,8 @@
 * [Installation](#installation)
 * [Requirements](#requirements)
 * [User Stories](#user-stories)
-* [Code Extracts](#code-extracts)
 * [The Game](#the-game)
+* [Code Extracts](#code-extracts)
 
 ## Software and Dependencies
 
@@ -79,6 +79,18 @@ With the MVP created. Sprint Two focused on extra features to enhance the core f
 
 The greatest challenge of sprint two was ensuring the sync between the song and the notes to be played was close. This was solved with the use of repeated calls to a single function that handled most timings, which is elaborated on further in the Code Extracts section.
 
+# The Game
+
+The game is a rhythm game inspired, in both gameplay and style, by Guitar Hero and Rock Band. It has been tuned for the player to 'play' through Queen - We Will Rock You.
+
+## Instructions
+
+Click the Begin Song button to begin the game. Match the coloured notes with their corresponding keys when the notes reach the accept zone, denoted by the gold pickup in the background image. A matched note will score a point, a missed note will lose a point, a note played when one is not due will also lose a point.
+
+## Screenshot
+
+![screenshot](./images/readme_screenshot.png)
+
 ## Code Extracts
 
 This section is dedicated to pieces of code that form fundamental pieces of the program. These extracts are all part of `js/app.js`.
@@ -129,15 +141,3 @@ $(document).keyup(function(event){
 `input` in this program is an object, as opposed to, for example, an array. When a button is pressed, the colour keycode is then created as a key to the object. This had the following benefits:
 * Javascript objects cannot have duplicate keys, so repeated calls of the keydown function (through holding the key down) will do nothing.
 * `delete object[key]` is far easier than removing a member from an array, which may have required me to keep constant track of the index and contents of the input array.
-
-# The Game
-
-The game is a rhythm game inspired, in both gameplay and style, by Guitar Hero and Rock Band. It has been tuned for the player to 'play' through Queen - We Will Rock You.
-
-## Instructions
-
-Click the Begin Song button to begin the game. Match the coloured notes with their corresponding keys when the notes reach the accept zone, denoted by the gold pickup in the background image. A matched note will score a point, a missed note will lose a point, a note played when one is not due will also lose a point.
-
-## Screenshot
-
-![screenshot](./images/readme_screenshot.png)
