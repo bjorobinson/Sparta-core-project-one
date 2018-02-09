@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sparta Core Project 1</title>
+    <!-- javascript -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <!-- css -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <div id = "score"></div>
+      </div>
+      <div class="col-xs-4">
+        <div id = "board">
+          <div id = "notefall"><!--Where Notes come down from-->
+          </div>
+          <div id = "zone"><!--Accept Zone-->
+            <li id="red" class="note red">G</li>
+            <li id="yellow" class="note yellow">H</li>
+            <li id="green" class="note green">J</li>
+            <li id="blue" class="note blue">K</li>
+            <li id="purple" class="note purple">L</li>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+          <div id ="instructions">
+            <img id="logo" src="./images/spartahero_font.png" alt="">
+            <p>
+              Match the coloured notes with the notes on your keyboard when they arrive near the gold zone, the pickup. A matched note will score a point, a missed note will lose a point, a note played when one is not due will also lose a point.
+            </p>
+            <button type="button" id = "start_btn" class="btn">Begin Song!</button>
+          </div>
+      </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">You Rock</h4>
+          </div>
+          <div id="score_result" class="modal-body">
+            <p>PH Text</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

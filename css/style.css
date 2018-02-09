@@ -1,0 +1,138 @@
+/* Native Element overriding */
+ul {
+  list-style-type:none;
+  padding-left: 0px;
+}
+
+li{
+  display: inline-block;
+}
+
+body{
+  background: url("../images/background_guitar.png");
+  background-repeat: no-repeat;
+  background-position-y: -940px;
+  background-position-x: -712px;
+  background-size: 200%;
+}
+
+/* Class Styling */
+.col-xs{
+  margin: none;
+  padding: 0px 0px;
+}
+
+.note{
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  margin: auto 2.6%;
+  text-align: center;
+  font-size: 30px;
+}
+
+
+.pushed{
+  opacity: 0.5;
+}
+
+
+/* Blank CSS classes that are checked by app.js to check a key being pressed corresponds to the correct colour */
+.red{}
+.yellow{}
+.green{}
+.blue{}
+.purple{}
+
+.hit{}
+
+/* Positioning and styling of the key notes */
+.redNote{
+  background: red;
+  margin-left: 2%;
+  position: absolute;
+}
+
+.yellowNote{
+  background: yellow;
+  margin-left: 21%;
+  position:absolute;
+}
+
+.greenNote{
+  background: green;
+  margin-left: 40%;
+  position: absolute;
+}
+
+.blueNote{
+  background: blue;
+  margin-left: 59%;
+  position:absolute;
+}
+
+.purpleNote{
+  background: purple;
+  margin-left: 77%;
+  position: absolute;
+}
+
+/* ID styling */
+
+#start_btn{
+  color:white;
+  background: black;
+}
+
+#red{
+  background: red;
+}
+
+#yellow{
+  background: yellow;
+}
+
+#green{
+  background: green;
+}
+
+#blue{
+  background: blue;
+}
+
+#purple{
+  background: purple;
+}
+
+#zone{
+  height: 100px;
+}
+
+#notefall{
+  height: 600px;
+}
+
+#score{
+  font-size: 32px;
+  margin-top: 145%;
+  text-align: right;
+  margin-right: 10%;
+  color: white;
+}
+
+#instructions{
+  margin-top: 20%;
+  margin-left: 20%;
+  padding: none;
+  font-family: 'Hits_2';
+  font-size: 16px;
+}
+
+#logo{
+  padding-bottom:2%;
+}
+
+@font-face {
+  font-family: 'Hits_2';
+  src:url('../fonts/hits2/agaritalic.ttf');
+}
